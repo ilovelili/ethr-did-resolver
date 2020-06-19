@@ -1,0 +1,63 @@
+{
+  "name": "ethr-did-resolver",
+  "version": "0.0.1",
+  "description": "Resolve DID documents around ethereum addresses",
+  "main": "dist/ethr-did-resolver.js",
+  "source": "src/ethr-did-resolver.js",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilovelili/ethr-did-resolver.git"
+  },
+  "files": [
+    "index.d.ts",
+    "dist",
+    "lib",
+    "contracts",
+    "src",
+    "LICENSE",
+    "babel-preset.js",
+    ".babelrc"
+  ],
+  "scripts": {},
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "testURL": "http://localhost/",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "babel-jest": "^26.0.1",
+    "codecov": "^3.7.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jest": "^23.13.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "ganache-cli": "^6.9.1",
+    "jdom": "^3.2.1",
+    "jest": "^26.0.1",
+    "microbundle": "^0.12.1",
+    "regenerator-runtime": "^0.13.5",
+    "semantic-release": "^17.0.8",
+    "@truffle/contract": "^4.0.31"
+  },
+  "dependencies": {
+    "bn.js": "^5.1.2",
+    "buffer": "^5.6.0",
+    "did-resolver": "^2.0.1",
+    "ethjs-abi": "^0.2.1",
+    "ethjs-contract": "^0.2.3",
+    "ethjs-provider-http": "^0.1.6",
+    "ethjs-query": "^0.3.8",
+    "ethr-did-registry": "^0.0.3"
+  }
+}
