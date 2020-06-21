@@ -14,10 +14,10 @@ function sleep(seconds) {
 
 describe("ethrResolver", () => {
 	// use ganache-cli
-	// const provider = ganache.provider();
+	const provider = ganache.provider();
 	// use localhost
-	const localhost = "http://localhost:7545";
-	const provider = new HttpProvider(localhost); // use ethjs-provider-http instead of web3 http provider
+	// const localhost = "http://localhost:7545";
+	// const provider = new HttpProvider(localhost); // use ethjs-provider-http instead of web3 http provider
 	const DidReg = Contract(DidRegistryContract);
 	const web3 = new Web3();
 	web3.setProvider(provider);
@@ -166,7 +166,7 @@ describe("ethrResolver", () => {
 
 		describe("add auth delegate", () => {
 			beforeAll(async () => {
-				await registry.addDelegate(identity, Secp256k1SignatureAuthentication2018, delegate2, 60, { from: owner });
+				await registry.addDelegate(identity, Secp256k1SignatureAuthentication2018, delegate2, 180, { from: owner });
 
 				it("resolves document", () => {
 					return expect(didResolver.resolve(did)).resolves.toEqual({
