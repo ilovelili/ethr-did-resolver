@@ -19,7 +19,14 @@
     "babel-preset.js",
     ".babelrc"
   ],
-  "scripts": {},
+  "scripts": {
+    "build": "microbundle",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run build",
+    "release": "semantic-release --debug",
+    "test": "jest",
+    "test-with-coverage": "jest --coverage && codecov"
+  },
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,

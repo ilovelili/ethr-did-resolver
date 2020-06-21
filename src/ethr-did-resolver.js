@@ -3,7 +3,7 @@ import Eth from "ethjs-query";
 import abi from "ethjs-abi";
 import BigNumber from "bn.js";
 import EthContract from "ethjs-contract";
-import DidRegistryContract from "../contracts/ethr-did-registry.json";
+import DidRegistryContract from "../contract/ethr-did-registry.json";
 import { Buffer } from "buffer";
 // https://github.com/uport-project/ethr-did-registry registry contract address
 const REGISTRY = "0xdca7ef03e98e0dc2b855be647c39abe984fcf21b";
@@ -203,6 +203,18 @@ function configureNetwork(conf = {}) {
 	const eth = new Eth(provider);
 	const registryAddress = conf.registry || REGISTRY;
 	const DidReg = new EthContract(eth)(DidRegistryContract);
+
+	// 'at' and 'new' which can be used to create the contract instane.
+	// The at method is used to create a Contract instance for a contract that has already been deployed to the Ethereum blockchain (testnet, livenet, local or otherwise).
+	// The new method is used to deploy the contract to the current chain.
+	// deploy first if we use localhost
+	// if (conf.rpcUrl.indexOf("localhost") > -1) {
+	// 	console.log("deploy smart contract");
+	// 	DidReg.new((error, result) => {
+	// 		if (error) throw error;
+	// 	});
+	// }
+
 	const didReg = DidReg.at(registryAddress);
 	return { eth, registryAddress, didReg };
 }
